@@ -60,8 +60,45 @@
               <ul>
                 <a class="btn btn-primary" href="/blog/">Blog (COMING SOON)</a>
                 <a class="btn btn-primary" href="/docs/">Docs (COMING SOON)</a>
+                <a class="btn btn-primary" href="#applications">Applications</a>
               </ul>
             </center>
+            <hr>
+            <div id="applications">
+              <h5>Applications</h5>
+              <hr>
+              <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+                <p>
+                  <label>Your Name: <input type="text" name="name" class="form-control" /></label>   
+                </p>
+                <p>
+                  <label>Your Email: <input type="email" name="email" class="form-control" /></label>
+                </p>
+                <p>
+                  <label>Your Role: <select class="form-control" name="role[]" multiple>
+                    <option value="connectionteam">Connection Team</option>
+                    <option value="security">Security</option>
+                    <option value="dramateacher">Drama</option>
+                    <option value="consuler">Consuler</option>
+                    <option value="gymteacher">Coach</option>
+                    <option value="science">Science</option>
+                    <option value="musicteacher">Music</option>
+                    <option value="readingteacher">Reading</option>
+                    <option value="mathteacher">Math</option>
+                  </select></label>
+                </p>
+                <p>
+                  <label>Discord: <textarea class="form-control" name="discord"></textarea></label>
+                </p>
+                <p>
+                  <label></label>
+                </p>
+                <div data-netlify-recaptcha="true"></div>
+                <p>
+                  <button class="btn btn-primary" type="submit">Send</button>
+                </p>
+              </form>
+            </div>
             <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
     </body>
 </html>
