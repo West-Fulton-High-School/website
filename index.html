@@ -9,12 +9,6 @@
         <title>West Fulton High School</title>
     </head>
     <body>
-        <script>
-          !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
-          analytics.load("qSRKn1H2aVP4SGJjI05yNp5wq5mkdz1w");
-          analytics.page();
-          }}();
-        </script>
         <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
@@ -28,7 +22,24 @@
                     $('select.form-control').removeClass('form-control').css('width', '100%')
                   }
                 })
+        </script>
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+        <amp-analytics type="segment">
+            <script type="application/json">
+              {
+                "vars": {
+                  "writeKey": "qOpcmH2JCQZXIcsWImX9bcMnYKBvrVqA",
+                  "name": "West Fulton High School"
+                }
+              }
             </script>
+        </amp-analytics>
+        <script>
+          !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+          analytics.load("qSRKn1H2aVP4SGJjI05yNp5wq5mkdz1w");
+          analytics.page();
+          }}();
+        </script>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">West Fulton High School</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,39 +82,7 @@
             </center>
             <hr>
             <div id="applications">
-              <h5>Applications</h5>
-              <hr>
-              <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
-                <p>
-                  <label>Your Name: <input type="text" name="name" class="form-control" /></label>   
-                </p>
-                <p>
-                  <label>Your Email: <input type="email" name="email" class="form-control" /></label>
-                </p>
-                <p>
-                  <label>Your Role: <select class="form-control" name="role[]" multiple>
-                    <option value="connectionteam">Connection Team</option>
-                    <option value="security">Security</option>
-                    <option value="dramateacher">Drama</option>
-                    <option value="consuler">Consuler</option>
-                    <option value="gymteacher">Coach</option>
-                    <option value="science">Science</option>
-                    <option value="musicteacher">Music</option>
-                    <option value="readingteacher">Reading</option>
-                    <option value="mathteacher">Math</option>
-                  </select></label>
-                </p>
-                <p>
-                  <label>Discord: <textarea class="form-control" name="discord"></textarea></label>
-                </p>
-                <p>
-                  <label></label>
-                </p>
-                <div data-netlify-recaptcha="true"></div>
-                <p>
-                  <button class="btn btn-primary" type="submit">Send</button>
-                </p>
-              </form>
+              <iframe src="https://docs.google.com/forms/d/1dI7J6j5zOmfpN_CDHTkVHW7tbOWrJLC2Dx9wpsB0k5U" frameborder="0"></iframe>
             </div>
             <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
     </body>
