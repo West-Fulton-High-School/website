@@ -9,6 +9,8 @@
         "directory": "master",
         "type": "github"
     },
+    "bugs": {"url": "https://github.com/West-Fulton-High-School/website"},
+    "readme": "README.md",
     "maintainers": [
         {
             "name": "joshuadl12",
