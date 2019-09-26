@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  </head>
+  <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDiu0dm8PBA47mXkqBFJXm2KMnwU-9e3FI",
+        authDomain: "mineral-service-233122.firebaseapp.com",
+        databaseURL: "https://mineral-service-233122.firebaseio.com",
+        projectId: "mineral-service-233122",
+        storageBucket: "mineral-service-233122.appspot.com",
+        messagingSenderId: "467349798651",
+        appId: "1:467349798651:web:dc61982e288541d814fa5e"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script>
+      // Server side code.
+      const admin = require('firebase-admin');
+      const serviceAccount = require('/serviceAccountKey.json');
+
+      // The Firebase Admin SDK is used here to verify the ID token.
+      admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount)
+      });
+
+      function getIdToken(req) {
+        // Parse the injected ID token from the request header.
+        const authorizationHeader = req.headers.authorization || '';
+        const components = authorizationHeader.split(' ');
+        return components.length > 1 ? components[1] : '';
+      }
+
+      function checkIfSignedIn(url) {
+        return (req, res, next) => {
+          if (req.url == url) {
+            const idToken = getIdToken(req);
+            // Verify the ID token using the Firebase Admin SDK.
+            // User already logged in. Redirect to profile page.
+            admin.auth().verifyIdToken(idToken).then((decodedClaims) => {
+        // User is authenticated, user claims can be retrieved from
+        // decodedClaims.
+        // In this sample code, authenticated users are always redirected to
+        // the profile page.
+            res.redirect('/profile');
+            }).catch((error) => {
+              next();
+              });
+            } else {
+              next();
+              }
+            };
+          }
+
+        // If a user is signed in, redirect to profile page.
+        app.use(checkIfSignedIn('/'));
+
+        </script>
+    <script>
+            var uiauth = firebaseui.auth
+            // Initialize the FirebaseUI Widget using Firebase.
+            var ui = new uiauth.AuthUI(firebase.auth());
+            //Config
+            var uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+      // User successfully signed in.
+      // Return type determines whether we continue the redirect automatically
+      // or whether we leave that to developer to handle.
+                return true;
+            },
+            uiShown: function() {
+      // The widget is rendered.
+      // Hide the loader.
+            document.getElementById('loader').style.display = 'none';
+            }
+            },
+  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+            signInFlow: 'popup',
+            signInSuccessUrl: '/profile',
+            signInOptions: [
+    // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                firebase.auth.PhoneAuthProvider.PROVIDER_ID
+            ],
+                // Terms of service url.
+                tosUrl: '<your-tos-url>',
+                // Privacy policy url.
+                privacyPolicyUrl: '<your-privacy-policy-url>'
+            };
+            // Config
+            ui.start('#firebaseui-auth-container', {
+              signInOptions: [
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                firebase.auth.PhoneAuthProvider.PROVIDER_ID                    
+              ]
+            });
+            // The start method will wait until the DOM is loaded.
+            ui.start('#firebaseui-auth-container', uiConfig);    
+    </script>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">
+      <img src="https://cdn.westfultonhighschool.tk/img/logo.png" height="100" width="100">
+      <h3>Loading...</h3>
+      <p>Loading Auth, Firebase, and Firebase UI</p>
+    </div>
+  </body>
+</html>
