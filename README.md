@@ -7,3 +7,5 @@ Status:
 Links:
 
 Website > https://westfultonhighschool.tk
+
+Docs > https://docs.westfultonhighschool.tk
