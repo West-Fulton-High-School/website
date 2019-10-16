@@ -1,0 +1,2 @@
+/admin/* /admin/index.html 200! Role=user
+/admin  /admin/access-denied 401
